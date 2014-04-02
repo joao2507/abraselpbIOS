@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ABRASELPB</title>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //window.location = "http://www.pb.abrasel.com.br/guia";
+                
+                var ref = window.open('http://www.pb.abrasel.com.br/guia');
+
+                ref.addEventListener("online", onOnline, false);
+                ref.addEventListener("offline", onOffline, false);
+                ref.addEventListener("backbutton", function(e) {
+
+                    /*navigator.notification.confirm(
+                     'Você realmente deseja sair do aplicativo?',
+                     exitFromApp,
+                     'Sair',
+                     'Não,Sim'
+                     );*/
+                    history.go(-1);
+
+                }, false);
+            }
+
+            function onOffline() {
+                showAlert('Sem conexão a internet!');
+            }
+
+            function onOnline() {
+            }
+
+            function showAlert(texto) {
+                alert(texto);
+            }
+        </script>
+    </head> 
+    <body>
+        &nbsp;
+    </body>
+</html>
